@@ -19,7 +19,10 @@ export default function Home() {
             placeholderTextColor="#808080"
           />
 
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity 
+            style={styles.button} 
+            activeOpacity={0.8}
+          >
             <Text style={styles.buttonText}>
               +
             </Text>
