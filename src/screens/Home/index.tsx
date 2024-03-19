@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity, FlatList } from "react-native";
 import { styles } from "./styles";
 
 export default function Home() {
@@ -27,6 +27,20 @@ export default function Home() {
               +
             </Text>
           </TouchableOpacity>
+        </View>
+
+        <View style={styles.tasksView}>
+          <View style={styles.tasksHeader}>
+            <View style={styles.tasksHeaderWrapper}>
+              <Text style={styles.tasksHeaderTitle}>Criadas</Text>
+              <Text style={styles.tasksHeaderNumber}>0</Text>
+            </View>
+
+            <View style={styles.tasksHeaderWrapper}>
+              <Text style={styles.tasksHeaderTitle}>Concluídas</Text>
+              <Text style={styles.tasksHeaderNumber}>0</Text>
+            </View>
+          </View>
         </View>
       </View>
     </View>
