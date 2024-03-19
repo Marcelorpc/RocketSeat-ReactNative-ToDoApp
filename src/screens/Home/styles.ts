@@ -46,5 +46,30 @@ export const styles = StyleSheet.create({
   mainContent: {
     flex: 1,
     backgroundColor: "#1A1A1A"
+  },
+
+  tasksView: {
+    padding: 24
+  },
+  tasksHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
+  tasksHeaderWrapper: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8
+  },
+  tasksHeaderTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: "#4EA8DE"
+  },
+  tasksHeaderNumber: {
+    color: "#D9D9D9",
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    backgroundColor: "#333333",
+    borderRadius: 50
   }
-})
+});
