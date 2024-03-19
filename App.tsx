@@ -1,8 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from 'react-native';
+import { Fragment } from 'react';
+import { Text } from 'react-native';
+import Home from './src/screens/Home';
 
 export default function App() {
   return (
-    <Text></Text>
+    <Fragment>
+      <StatusBar 
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
+
+      <Home />
+    </Fragment>
   );
 }
