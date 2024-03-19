@@ -39,5 +39,9 @@ export const styles = StyleSheet.create({
   },
   buttonText: {
     color: "#F2F2F2"
+  },
+  mainContent: {
+    flex: 1,
+    backgroundColor: "#1A1A1A"
   }
 })
