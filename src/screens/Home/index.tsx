@@ -11,18 +11,20 @@ export default function Home() {
         />
       </View>
 
-      <View style={styles.form}>
-        <TextInput
-          style={styles.input}
-          placeholder="Crie uma nova tarefa"
-          placeholderTextColor="#808080"
-        />
+      <View style={styles.mainContent}>
+        <View style={styles.form}>
+          <TextInput
+            style={styles.input}
+            placeholder="Crie uma nova tarefa"
+            placeholderTextColor="#808080"
+          />
 
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>
-            +
-          </Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>
+              +
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   )
