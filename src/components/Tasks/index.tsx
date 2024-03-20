@@ -3,8 +3,11 @@ import { styles } from "./styles"
 import { CheckBox, Icon } from '@rneui/themed'
 import { useState } from "react"
 
-export function Tasks(){
-  const [isChecked, setIsChecked] = useState(true)
+type props = {
+  content: string
+}
+export function Tasks({content}: props){
+  const [isChecked, setIsChecked] = useState(false)
 
   function getTaskTextStyle() {
     if(isChecked == true) {
@@ -25,7 +28,7 @@ export function Tasks(){
         />
 
         <Text style={getTaskTextStyle()}>
-          Teste Tarefa
+          {content}
         </Text>
       </View>
 
