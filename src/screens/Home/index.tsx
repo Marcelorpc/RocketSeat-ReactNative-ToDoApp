@@ -8,6 +8,9 @@ export default function Home() {
 
   const [inputTaskContent, setInputTaskContent] = useState("")
 
+  const [counterTasksCreated, setCounterTasksCreated] = useState(0)
+  const [counterTasksCompleted, setCounterTasksCompleted] = useState(0)
+
   function handleTaskCreate() {
     if(taskContent.includes(inputTaskContent)){
       Alert.alert("Atencao!", "Essa tarefa ja foi criada!")
@@ -15,21 +18,36 @@ export default function Home() {
       Alert.alert("Atencao!", "Voce nao pode criar uma terefa vazia!")
     } else {
       setTaskContent([...taskContent, inputTaskContent])
+      setCounterTasksCreated(prevState => prevState + 1)
       setInputTaskContent("")
       Keyboard.dismiss()
     }
   }
 
-  function handleDeleteTask(item: string) {
+  function handleDeleteTask(isChecked: boolean, item: string) {
     Alert.alert("Remover:", "Voce tem certeza que deseja remover a tarefa?", [
       {
         text: "Sim",
-        onPress: () => setTaskContent(prevState => prevState.filter(itemContent => itemContent !== item))
+        onPress: () => {
+          setTaskContent(prevState => prevState.filter(itemContent => itemContent !== item))
+          setCounterTasksCreated(prevState => prevState - 1)
+          if(isChecked == true) {
+            setCounterTasksCompleted(prevState => prevState - 1)
+          }
+        }
       },
       {
         text: "Nao"
       }
     ])
+  }
+
+  function handleCompletedTasksNumber(checked: boolean) {
+    if(checked){
+      setCounterTasksCompleted(prevState => prevState + 1)
+    } else if(!checked) {
+      setCounterTasksCompleted(prevState => prevState - 1)
+    }
   }
 
   return (
@@ -66,12 +84,12 @@ export default function Home() {
           <View style={styles.tasksHeader}>
             <View style={styles.tasksHeaderWrapper}>
               <Text style={styles.tasksHeaderTitle}>Criadas</Text>
-              <Text style={styles.tasksHeaderNumber}>0</Text>
+              <Text style={styles.tasksHeaderNumber}>{counterTasksCreated}</Text>
             </View>
 
             <View style={styles.tasksHeaderWrapper}>
               <Text style={styles.tasksHeaderTitle}>Concluídas</Text>
-              <Text style={styles.tasksHeaderNumber}>0</Text>
+              <Text style={styles.tasksHeaderNumber}>{counterTasksCompleted}</Text>
             </View>
           </View>
 
@@ -82,7 +100,8 @@ export default function Home() {
             renderItem={({item}) => (
               <Tasks 
                 content={item}
-                onRemove={() => handleDeleteTask(item)}
+                onRemove={(isChecked) => handleDeleteTask(isChecked, item)}
+                onCheckChange={(checked) => handleCompletedTasksNumber(checked)}
               />
             )}
           />
