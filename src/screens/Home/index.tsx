@@ -1,23 +1,24 @@
-import { View, Text, Image, TextInput, TouchableOpacity, FlatList } from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity, FlatList, Alert, Keyboard } from "react-native";
 import { styles } from "./styles";
 import { Tasks } from "../../components/Tasks";
 import { useState } from "react";
 
 export default function Home() {
-  const [taskContent, setTaskContent] = useState([
-    <Tasks key={1}/>,
-    <Tasks key={2}/>,
-    <Tasks key={3}/>,
-    <Tasks key={4}/>,
-    <Tasks key={5}/>,
-    <Tasks key={6}/>,
-    <Tasks key={7}/>,
-    <Tasks key={8}/>,
-    <Tasks key={9}/>,
-    <Tasks key={10}/>,
-    <Tasks key={11}/>,
-    <Tasks key={12}/>
-  ])
+  const [taskContent, setTaskContent] = useState<string[]>([])
+
+  const [inputTaskContent, setInputTaskContent] = useState("")
+
+  function handleTaskCreate() {
+    if(taskContent.includes(inputTaskContent)){
+      Alert.alert("Atencao!", "Essa tarefa ja foi criada!")
+    } else if(inputTaskContent == "") {
+      Alert.alert("Atencao!", "Voce nao pode criar uma terefa vazia!")
+    } else {
+      setTaskContent([...taskContent, inputTaskContent])
+      setInputTaskContent("")
+      Keyboard.dismiss()
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -33,12 +34,15 @@ export default function Home() {
           <TextInput
             style={styles.input}
             placeholder="Crie uma nova tarefa"
+            onChangeText={setInputTaskContent}
+            value={inputTaskContent}
             placeholderTextColor="#808080"
           />
 
           <TouchableOpacity 
             style={styles.button} 
             activeOpacity={0.8}
+            onPress={handleTaskCreate}
           >
             <Text style={styles.buttonText}>
               +
@@ -62,8 +66,9 @@ export default function Home() {
           <FlatList 
             showsVerticalScrollIndicator={false}
             data={taskContent}
-            renderItem={({task}) => (
-              <Tasks />
+            keyExtractor={item => item}
+            renderItem={({item}) => (
+              <Tasks content={item} />
             )}
           />
         </View>
