@@ -20,6 +20,18 @@ export default function Home() {
     }
   }
 
+  function handleDeleteTask(item: string) {
+    Alert.alert("Remover:", "Voce tem certeza que deseja remover a tarefa?", [
+      {
+        text: "Sim",
+        onPress: () => setTaskContent(prevState => prevState.filter(itemContent => itemContent !== item))
+      },
+      {
+        text: "Nao"
+      }
+    ])
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -68,7 +80,10 @@ export default function Home() {
             data={taskContent}
             keyExtractor={item => item}
             renderItem={({item}) => (
-              <Tasks content={item} />
+              <Tasks 
+                content={item}
+                onRemove={() => handleDeleteTask(item)}
+              />
             )}
           />
         </View>
