@@ -5,6 +5,15 @@ import { useState } from "react"
 
 export function Tasks(){
   const [isChecked, setIsChecked] = useState(true)
+
+  function getTaskTextStyle() {
+    if(isChecked == true) {
+      return styles.checkboxTextCompleted
+    } else if(isChecked == false) {
+      return styles.checkboxText
+    }
+  }
+
   return (
     <View style={styles.tasksView}>
       <View style={styles.checkboxWrapper}>
@@ -15,7 +24,7 @@ export function Tasks(){
           onPress={() => setIsChecked(!isChecked)}
         />
 
-        <Text style={styles.checkboxText}>
+        <Text style={getTaskTextStyle()}>
           Teste Tarefa
         </Text>
       </View>
