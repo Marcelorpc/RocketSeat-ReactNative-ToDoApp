@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity, View } from "react-native"
 import { styles } from "./styles"
-import { CheckBox } from '@rneui/themed'
+import { CheckBox, Icon } from '@rneui/themed'
 import { useState } from "react"
 
 export function Tasks(){
@@ -29,8 +29,12 @@ export function Tasks(){
         </Text>
       </View>
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>-</Text>
+      <TouchableOpacity style={styles.button} activeOpacity={0.8}>
+        <Icon 
+          size={20}
+          iconStyle={styles.trashIcon} 
+          name="delete"
+        />
       </TouchableOpacity>
     </View>
   )
