@@ -1,13 +1,14 @@
 import { Text, TouchableOpacity, View } from "react-native"
 import { styles } from "./styles"
-import { CheckBox, Icon } from '@rneui/themed'
-import { useState } from "react"
+import { CheckBox, CheckBoxProps, Icon } from '@rneui/themed'
+import { ChangeEvent, useState } from "react"
 
 type props = {
   content: string,
-  onRemove: () => void
+  onRemove: (isChecked: boolean) => void,
+  onCheckChange: (checked: boolean) => void
 }
-export function Tasks({content, onRemove}: props){
+export function Tasks({content, onRemove, onCheckChange}: props){
   const [isChecked, setIsChecked] = useState(false)
 
   function getTaskTextStyle() {
@@ -18,6 +19,11 @@ export function Tasks({content, onRemove}: props){
     }
   }
 
+  function handleCheckChange(checked: boolean) {
+    setIsChecked(checked)
+    onCheckChange(checked)
+  }
+
   return (
     <View style={styles.tasksView}>
       <View style={styles.checkboxWrapper}>
@@ -25,7 +31,7 @@ export function Tasks({content, onRemove}: props){
           checked={isChecked}
           size={24}
           containerStyle={styles.checkbox}
-          onPress={() => setIsChecked(!isChecked)}
+          onPress={() => handleCheckChange(!isChecked)}
         />
 
         <Text style={getTaskTextStyle()}>
@@ -33,7 +39,7 @@ export function Tasks({content, onRemove}: props){
         </Text>
       </View>
 
-      <TouchableOpacity style={styles.button} activeOpacity={0.8} onPress={onRemove}>
+      <TouchableOpacity style={styles.button} activeOpacity={0.8} onPress={() => onRemove(isChecked)}>
         <Icon 
           size={20}
           iconStyle={styles.trashIcon} 
