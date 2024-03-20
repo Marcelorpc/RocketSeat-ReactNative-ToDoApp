@@ -1,8 +1,24 @@
 import { View, Text, Image, TextInput, TouchableOpacity, FlatList } from "react-native";
 import { styles } from "./styles";
 import { Tasks } from "../../components/Tasks";
+import { useState } from "react";
 
 export default function Home() {
+  const [taskContent, setTaskContent] = useState([
+    <Tasks key={1}/>,
+    <Tasks key={2}/>,
+    <Tasks key={3}/>,
+    <Tasks key={4}/>,
+    <Tasks key={5}/>,
+    <Tasks key={6}/>,
+    <Tasks key={7}/>,
+    <Tasks key={8}/>,
+    <Tasks key={9}/>,
+    <Tasks key={10}/>,
+    <Tasks key={11}/>,
+    <Tasks key={12}/>
+  ])
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -43,11 +59,13 @@ export default function Home() {
             </View>
           </View>
 
-          <Tasks />
-          <Tasks />
-          <Tasks />
-          <Tasks />
-          <Tasks />
+          <FlatList 
+            showsVerticalScrollIndicator={false}
+            data={taskContent}
+            renderItem={({task}) => (
+              <Tasks />
+            )}
+          />
         </View>
       </View>
     </View>
