@@ -43,17 +43,18 @@ export const styles = StyleSheet.create({
     fontWeight: '700',
     borderColor: "#fff"
   },
+
   mainContent: {
     flex: 1,
     backgroundColor: "#1A1A1A"
   },
-
   tasksView: {
     padding: 24
   },
   tasksHeader: {
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    marginBottom: 20
   },
   tasksHeaderWrapper: {
     flexDirection: "row",

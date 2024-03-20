@@ -1,5 +1,6 @@
 import { View, Text, Image, TextInput, TouchableOpacity, FlatList } from "react-native";
 import { styles } from "./styles";
+import { Tasks } from "../../components/Tasks";
 
 export default function Home() {
   return (
@@ -41,6 +42,12 @@ export default function Home() {
               <Text style={styles.tasksHeaderNumber}>0</Text>
             </View>
           </View>
+
+          <Tasks />
+          <Tasks />
+          <Tasks />
+          <Tasks />
+          <Tasks />
         </View>
       </View>
     </View>
