@@ -4,9 +4,10 @@ import { CheckBox, Icon } from '@rneui/themed'
 import { useState } from "react"
 
 type props = {
-  content: string
+  content: string,
+  onRemove: () => void
 }
-export function Tasks({content}: props){
+export function Tasks({content, onRemove}: props){
   const [isChecked, setIsChecked] = useState(false)
 
   function getTaskTextStyle() {
@@ -32,7 +33,7 @@ export function Tasks({content}: props){
         </Text>
       </View>
 
-      <TouchableOpacity style={styles.button} activeOpacity={0.8}>
+      <TouchableOpacity style={styles.button} activeOpacity={0.8} onPress={onRemove}>
         <Icon 
           size={20}
           iconStyle={styles.trashIcon} 
