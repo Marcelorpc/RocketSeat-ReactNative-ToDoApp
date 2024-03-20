@@ -31,15 +31,9 @@ export const styles = StyleSheet.create({
   },
   button: {
     marginLeft: 8,
-    width: 20,
-    backgroundColor: "#333333",
     alignItems: "center",
-    borderRadius: 50
   },
-  buttonText: {
-    fontSize: 20,
-    fontWeight: "700",
-    lineHeight: 22,
-    color: "red"
+  trashIcon: {
+    color: "#E25858"
   }
 })
