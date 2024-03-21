@@ -23,11 +23,13 @@ export const styles = StyleSheet.create({
   checkboxText: {
     flex: 1,
     color: "#F2F2F2",
+    textAlign: "justify"
   },
   checkboxTextCompleted: {
     flex: 1,
     color: "#808080",
-    textDecorationLine: "line-through"
+    textDecorationLine: "line-through",
+    textAlign: "justify"
   },
   button: {
     marginLeft: 8,
