@@ -106,7 +106,7 @@ export default function Home() {
               />
             )}
             ListEmptyComponent={() => (
-              <Fragment>
+              <View style={styles.emptyContentView}>
                 <Icon 
                 name="notes"
                 size={50}
@@ -120,7 +120,7 @@ export default function Home() {
                 <Text style={styles.emptyContentText}>
                   Crie tarefas e organize seus itens a fazer
                 </Text>
-              </Fragment>
+              </View>
             )}
           />
         </View>
