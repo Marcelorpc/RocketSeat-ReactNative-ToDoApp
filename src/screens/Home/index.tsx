@@ -1,7 +1,8 @@
 import { View, Text, Image, TextInput, TouchableOpacity, FlatList, Alert, Keyboard } from "react-native";
 import { styles } from "./styles";
 import { Tasks } from "../../components/Tasks";
-import { useState } from "react";
+import { Fragment, useState } from "react";
+import { Icon } from "@rneui/themed";
 
 export default function Home() {
   const [taskContent, setTaskContent] = useState<string[]>([])
@@ -103,6 +104,23 @@ export default function Home() {
                 onRemove={(isChecked) => handleDeleteTask(isChecked, item)}
                 onCheckChange={(checked) => handleCompletedTasksNumber(checked)}
               />
+            )}
+            ListEmptyComponent={() => (
+              <Fragment>
+                <Icon 
+                name="notes"
+                size={50}
+                iconStyle={styles.iconNotes}
+                />
+
+                <Text style={styles.emptyContentTitle}>
+                  Você ainda não tem tarefas cadastradas
+                </Text>
+
+                <Text style={styles.emptyContentText}>
+                  Crie tarefas e organize seus itens a fazer
+                </Text>
+              </Fragment>
             )}
           />
         </View>
