@@ -49,7 +49,8 @@ export const styles = StyleSheet.create({
     backgroundColor: "#1A1A1A"
   },
   tasksView: {
-    padding: 24
+    padding: 24,
+    marginBottom: "21%"
   },
   tasksHeader: {
     flexDirection: "row",
