@@ -34,6 +34,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   trashIcon: {
-    color: "#E25858"
+    color: "#E25858",
+    opacity: 0.6
   }
 })
