@@ -72,5 +72,22 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 10,
     backgroundColor: "#333333",
     borderRadius: 50
+  },
+  iconNotes: {
+    color: "#808080",
+    marginTop: 50,
+    marginBottom: 20,
+  },
+  emptyContentTitle: {
+    fontWeight: "700",
+    color: "#808080",
+    textAlign: "center",
+    marginBottom: 5,
+    fontSize: 16
+  },
+  emptyContentText: {
+    color: "#808080",
+    textAlign: "center",
+    fontSize: 16
   }
 });
