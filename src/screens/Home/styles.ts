@@ -73,9 +73,14 @@ export const styles = StyleSheet.create({
     backgroundColor: "#333333",
     borderRadius: 50
   },
+
+  emptyContentView: {
+    borderTopColor: "#808080",
+    borderTopWidth: 2,
+  },
   iconNotes: {
     color: "#808080",
-    marginTop: 50,
+    marginTop: 40,
     marginBottom: 20,
   },
   emptyContentTitle: {
